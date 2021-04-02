@@ -1,0 +1,1 @@
+module.exports = {...require("./weather"), command: "time"}; //redirect to weather.js

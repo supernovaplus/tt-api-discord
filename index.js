@@ -4,12 +4,11 @@ BOT_TOKEN=token
 TT_TOKEN=token
 */
 
-require('dotenv').config()
+require('dotenv').config();
 const Discord = require("discord.js");
 const { TransportTycoon } = require('transporttycoon');
 const bot = new Discord.Client();
 const fs = require('fs');
-bot.commands = new Discord.Collection();
 
 //true for "prefix command" | example: "!tt help"
 //false for "prefixcommand" | example: "!tthelp"
@@ -19,11 +18,11 @@ const customPrefix = "!tt";
 const prefix = customPrefix + (appendSpace ? " " : "");
 const ttApi = new TransportTycoon(process.env.TT_TOKEN, true);
 
+bot.commands = new Discord.Collection();
 for (const file of fs.readdirSync('./commands').filter(file => file.endsWith('.js'))) {
-	const fn = require(`./commands/${file}`);
-	bot.commands.set(fn.command, fn);
+    const fn = require(`./commands/${file}`);
+    bot.commands.set(fn.command, fn);
 }
-
 console.log("Loaded: [" + (bot.commands.map(el=>el.command).join(", ") || "---") + "] commands")
 
 bot.on('ready', async () => {

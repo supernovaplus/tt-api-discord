@@ -2,9 +2,9 @@
 const { enc } = require("../utils");
 
 module.exports = {
-	command: 'charges',
-	info: 'get charges',
-	async run({message, ttApi}) {
+    command: 'charges',
+    info: 'get charges',
+    async run({message, ttApi}) {
         const charges = await ttApi.getCharges();
         message.channel.send(
             enc(
