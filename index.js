@@ -37,6 +37,7 @@ bot.on('ready', async () => {
 
 bot.on("message", message => {
     if (message.author.bot || !message.content.startsWith(prefix)) return;
+    // if(message.channel.id !== "your bot channel id") return; //uncooment if you want to lock the commands to a single channel
 
     const commandBody = message.content.slice(prefix.length);
     const args = commandBody.split(' ');

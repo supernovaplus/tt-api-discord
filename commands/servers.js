@@ -9,9 +9,9 @@ module.exports = {
         message.channel.send(
             enc(
                 "[Servers List]\n" +
-                    serversList
+                    (serversList
                         .map((server, index) => `${index + 1}: ${server[1]} = ${server[0]}`)
-                        .join('\n')
+                        .join('\n'))
             )
         );
     }

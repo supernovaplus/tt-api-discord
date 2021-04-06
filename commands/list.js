@@ -1,1 +1,0 @@
-module.exports = {...require("./help"), command: "commands"}; //redirect to help.js
